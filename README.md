@@ -49,7 +49,7 @@ python3 main.py / py main.py
 ```sh
 You must use Python 3.9 or higher
 
-git clone https://github.com/firstapostle/Blood.git
+git clone https://github.com/MishaSok/ProxyTools
 
 Install Python3 modules
  - pip3 install -r requirements.txt  or  pip install -r requirements.txt
