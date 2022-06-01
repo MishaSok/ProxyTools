@@ -1,6 +1,6 @@
 <div align=center>
  
-# ProxyTools v1.0
+# ProxyTools v1.1
 
  Application for easy management of proxy servers<br/><br/><br/>
  This was created for educational purposes<br/>
@@ -16,6 +16,10 @@
  <img src="https://img.shields.io/badge/Python-FFDD00?style=for-the-badge&logo=python&logoColor=blue"/></br>
 </div>
 
+##NEW UPDATE
+```shell
+'cwh' (check website history) COMMAND ADDED 
+```
 
 ## Menu
 ![image](https://cdn.discordapp.com/attachments/386836891703705600/976949707823783996/unknown.png)
@@ -63,5 +67,5 @@ python3 main.py / py main.py
 
 ## Version
 ```shell
-Version: 1.0
+Version: 1.1
 ```

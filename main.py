@@ -37,6 +37,7 @@ def welcome_screen():
           ➡ delete               |         delete proxies
           ➡ check                |         check proxies
           ➡ credits              |         information
+          ➡ cwh                  |         check website history  
           ➡ rel/reload           |         reload this win
 
                    By @JuicexNet for KILLNET_Jacky
@@ -53,10 +54,12 @@ def welcome_screen():
                 stdout.write(Fore.GREEN + f"Number of proxies found: " + Fore.MAGENTA + str(res) + Fore.GREEN + "")
             elif cmnd.split()[1] == 'http' or cmnd.split()[1] == 'https':
                 res = proxy_tool.count_proxies('http')
-                stdout.write(Fore.GREEN + f"Number of HTTP/HTTPS proxies found: " + Fore.MAGENTA + str(res) + Fore.GREEN + "")
+                stdout.write(
+                    Fore.GREEN + f"Number of HTTP/HTTPS proxies found: " + Fore.MAGENTA + str(res) + Fore.GREEN + "")
             elif cmnd.split()[1] == 'socks' or cmnd.split()[1] == 'socks5' or cmnd.split()[1] == 'socks4':
                 res = proxy_tool.count_proxies('socks')
-                stdout.write(Fore.GREEN + f"Number of SOCKS5/SOCKS4 proxies found: " + Fore.MAGENTA + str(res) + Fore.GREEN + "")
+                stdout.write(
+                    Fore.GREEN + f"Number of SOCKS5/SOCKS4 proxies found: " + Fore.MAGENTA + str(res) + Fore.GREEN + "")
             else:
                 stdout.write(Fore.RED + 'Wrong argument' + Fore.GREEN + "")
         elif cmnd.split()[0] == 'steal':
@@ -91,6 +94,27 @@ def welcome_screen():
                     stdout.write(Fore.MAGENTA + "This proxy is working!" + Fore.GREEN + "")
                 else:
                     stdout.write(Fore.RED + "This proxy isn't working!" + Fore.GREEN + "")
+            else:
+                stdout.write(Fore.RED + 'Wrong argument' + Fore.GREEN + "")
+        elif cmnd.split()[0] == 'cwh':
+            domain = input('URL: ')
+            # check url or not
+            if '//' in domain:
+                res = proxy_tool.check_site_history(domain)
+                if res:
+                    for elem in res:
+                        stdout.write(f'''
+                        
+        IP: {elem['ip']}
+        LOCATION: {elem['location']}
+        OWNER: {elem['owner']}
+        LASTSEEN: {elem['lastseen']} 
+                        
+                        ''')
+                    stdout.write(
+                        Fore.MAGENTA + f'RECORDS FOUNDED: {len(res)} // viewdns.info/api' + Fore.GREEN)
+                else:
+                    stdout.write(Fore.RED + 'NO RECORDS FOUNDED :(' + Fore.GREEN + "")
             else:
                 stdout.write(Fore.RED + 'Wrong argument' + Fore.GREEN + "")
         elif cmnd.split()[0] == 'credits' or cmnd.split()[0] == 'info':

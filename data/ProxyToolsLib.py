@@ -1,6 +1,6 @@
 from os import path, remove
 import requests
-from data.config import PROXY_RESOURCES
+from data.config import PROXY_RESOURCES, API_KEY
 from sys import stdout
 from colorama import init, Fore, Style, Back
 import urllib.request
@@ -145,10 +145,10 @@ class ProxyTools:
             req = urllib.request.Request('http://www.example.com')  # change the URL to test here
             sock = urllib.request.urlopen(req)
         except urllib.error.HTTPError as e:
-            #print('Error code: ', e.code)
+            # print('Error code: ', e.code)
             return e.code
         except Exception as detail:
-            #print("ERROR:", detail)
+            # print("ERROR:", detail)
             return True
         return False
 
@@ -158,3 +158,13 @@ class ProxyTools:
             return False
         else:
             return True
+
+    @staticmethod
+    def check_site_history(url):
+        domain = url.split('//')[1]
+        r = requests.get(f'https://api.viewdns.info/iphistory/?domain={domain}&apikey={API_KEY}&output=json')
+        res = r.json()
+        if 'error' in res['response']:
+            return False
+        else:
+            return res['response']['records']

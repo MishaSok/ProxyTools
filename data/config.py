@@ -56,3 +56,6 @@ PROXY_RESOURCES = [
     'https://api.proxyscrape.com/?request=displayproxies&proxytype=socks4&country=all'
 ]
 
+
+# You can ragister your own API key with https://viewdns.info/api/
+API_KEY = 'c6d67c0594e002ba0608cd4cc92328b2f7cbafca'
